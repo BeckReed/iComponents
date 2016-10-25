@@ -1,0 +1,29 @@
+
+table tbody td {
+	padding: 14px;
+	border-radius: 8px;
+	
+}
+table tbody td:hover {
+	background-color: #ECF3F9;
+	color: #71C2F0;
+}
+/*被选时间段*/
+table tbody td.day-in-range {
+	background-color: #d9ecfc;
+	color: #17b25d;
+}
+
+/*被选中的日期*/
+table tbody td.choosed {
+	background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #1d7fe2, #0865c2) repeat scroll 0 0;
+	box-shadow:  0 1px 0 rgba(255, 255, 255, 0.2) inset;
+	color: #fff;
+}
+/*当前日期没有被选中状态*/
+table tbody td.unchoosed {
+	background-color: #7d8793;
+	color: #fff;
+}
+
+
