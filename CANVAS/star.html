@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>star</title>
+</head>
+
+<body>
+    <canvas id="canvas" style="display:block;margin:50px auto;">
+    </canvas>
+    <script type="text/javascript">
+     var canvas = document.getElementById('canvas');
+     var context = canvas.getContext('2d');
+
+    window.onload = function() {
+        canvas.width = 800;
+        canvas.height = 800;
+        var skyStyle = context.createRadialGradient(canvas.width / 2, canvas.height, 0, canvas.width / 2, canvas.height / 2, canvas.height);
+        skyStyle.addColorStop(0.0, 'black');
+        skyStyle.addColorStop(1.0, '#035');
+        context.fillStyle = skyStyle;
+        context.fillRect(0, 0, canvas.width, canvas.height);
+        for (var i = 0; i < 200; i++) {
+            var r = Math.random() * 5 + 5;
+            var x = Math.random() * canvas.width;
+            var y = Math.random() * canvas.height * 0.65;
+            var a = Math.random() * 360;
+            drawStar(context, x, y, r, a);
+
+        }
+
+        fillMoon(context, 2, 600, 200, 100, 30);
+        drawLand(context);
+        
+    };
+
+    function drawLand(cxt){
+        cxt.save();
+        cxt.beginPath();
+        cxt.moveTo(0,600);
+        cxt.bezierCurveTo(540,400,660,800,1200,600);
+        cxt.lineTo(1200,1200);
+        cxt.lineTo(0,800);
+        cxt.closePath();
+        var landStyle =cxt.createLinearGradient(0,800,0,0);
+        landStyle.addColorStop(0.0,"#030");
+        landStyle.addColorStop(1.0,"#580");
+        cxt.fillStyle = landStyle;
+        cxt.fill();
+
+        cxt.restore();
+    }
+    //绘制五角星
+    function drawStar(cxt, x, y, R, rot) {
+        cxt.save();
+        cxt.translate(x, y);
+        cxt.rotate(rot / 180 * Math.PI);
+        cxt.scale(R, R);
+
+        starPath(cxt);
+        cxt.globalAlpha = Math.random();
+
+        cxt.fillStyle = "#fd5";
+        // cxt.strokeStyle = "#fd5";
+
+        // cxt.lineJoin = "round";
+        cxt.fill();
+        //cxt.stroke();
+
+        cxt.restore();
+    }
+    //绘制路径
+    function starPath(cxt) {
+
+        cxt.beginPath();
+        for (var i = 0; i < 5; i++) {
+            cxt.lineTo(Math.cos((18 + i * 72) / 180 * Math.PI), -Math.sin((18 + i * 72) / 180 * Math.PI));
+            cxt.lineTo(Math.cos((54 + i * 72) / 180 * Math.PI) * 0.5, -Math.sin((54 + i * 72) / 180 * Math.PI) * 0.5);
+        }
+
+        cxt.closePath();
+
+
+    }
+        function fillMoon(cxt,d,x,y,R,rot,fillcolor){
+        cxt.save();
+        cxt.translate(x,y);
+        cxt.rotate(rot*Math.PI/180);
+        cxt.scale(R,R);
+        pathMoon(cxt,d);
+        cxt.fillStyle= fillcolor||"#fd5";
+       /* cxt.shadowColor="#FFFFFC";
+        ctx.shadowBlur=10;
+        ctx.shadowOffsetX=5;
+        ctx.shadowOffsetY=5;*/
+        cxt.fill();
+        cxt.restore();
+
+    }
+    function pathMoon(cxt,d){
+        cxt.beginPath();
+        cxt.arc(0,0,1,0.5*Math.PI,1.5*Math.PI,true);
+        cxt.moveTo(0,-1);
+        cxt.arcTo(d,0,0,1,dis(0,-1,d,0)/d);
+        cxt.closePath();
+
+    }
+        function dis(x1,y1,x2,y2){
+
+        return  Math.sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));
+    }
+
+    </script>
+</body>
+
+</html>

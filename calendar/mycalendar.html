@@ -191,13 +191,6 @@ var a = new Calendar({
                   tableClassName:'cal-table',//table的类名，若有多个类，以空格分开
                   minRangeLen:3,//最短的时间跨度
                   maxRangeLen:50,//最长的时间跨度
-                  onSelected:function(){//选择日期后的回调函数
-                    /**
-                     * 如果是选择日期，则可以通过this.getRangeDate()获取选择的时间段
-                     * 如果是选择某一天，则可以通过this.getDayDate()获取选择的时间
-                     */
-                    alert(this.getRangeDate());//this.getDayDate()
-                }
          });
 </script>
 </body>
