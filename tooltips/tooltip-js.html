@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ToolTip</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style-js.css" />
+</head>
+
+<body>
+    <nav id="nav">
+        <ul>
+            <li><a class="tooltip" id = "tooltip1" href="#">Home</a></li>
+            <li><a class="tooltip" id = "tooltip2" href="#">About me</a></li>
+            <li><a class="tooltip" id = "tooltip3" href="#">Photography</a></li>
+            <li><a class="tooltip" id = "tooltip4" href="#">Work</a></li>
+            <li><a class="tooltip" id = "tooltip5" href="#">Contact</a></li>
+        </ul>
+   </nav>
+</body>
+<script>
+(function(){
+    var toolTipBoxClass = "tooltip-content";
+    var isIE = navigator.userAgent.indexOf('MSIE') >-1;//用户代理
+    //绑定事件统一方法
+    function addEvent(element, event, callbackFunction) {
+        if (element.addEventListener) {
+            element.addEventListener(event, callbackFunction, false);
+        } else if (element.attachEvent) {
+            element.attachEvent('on' + event, callbackFunction);
+        }
+    }
+    //简化document.getElementById(id)
+    var getEl = function(id){
+    	return document.getElementById(id);
+    }
+
+    var nav = getEl('nav');
+
+    //obj - ToolTip 超链接元素
+    //id - ToolTip提示框id
+    //html - ToolTip提示框HTML
+    //height - ToolTip提示框高度（可选）
+	function showToolTip(obj,id,html){
+		if (getEl(id) == null) {
+			//创建
+			var toolTipBox;
+			toolTipBox = document.createElement("span");
+			toolTipBox.className = toolTipBoxClass;
+			toolTipBox.id = id;
+            toolTipBox.innerHTML = html;
+
+			obj.appendChild(toolTipBox);
+
+
+			addEvent(obj,"mouseleave", function(){
+			setTimeout(function(){
+			    getEl(id).style.opacity= 0;
+
+			}, 300);
+		});
+
+		} else {
+			//显示
+		getEl(id).style.opacity= 1;
+		}
+
+	}
+    //
+    addEvent(nav, "mouseover", function(e){
+	var event = e || window.event;
+	var target = event.target || event.srcElement;
+
+	if(target.className == "tooltip"){
+
+	    var _html;
+		var _id;
+
+            switch (target.id) {
+                case "tooltip1":
+                    _id = "t1";
+                    _html = '<i class="fa fa-fw fa-home"></i>';
+                    break;
+                case "tooltip2":
+                    _id = "t2";
+                    _html = '<i class="fa fa-fw fa-user"></i>';
+                    break;
+                case "tooltip3":
+                    _id = "t3";
+                    _html = '<i class="fa fa-fw fa-camera-retro"></i>';
+                    break;
+                case "tooltip4":
+                    _id = "t4";
+                    _html = '<i class="fa fa-fw fa-briefcase"></i>';
+                    break;
+                case "tooltip5":
+                    _id = "t5";
+                    _html = '<i class="fa fa-fw fa-envelope"></i>';
+                    break;
+                default:
+                    return false;
+            }
+
+            showToolTip(target, _id, _html);
+
+	}
+
+});
+})();
+</script>
+</html>

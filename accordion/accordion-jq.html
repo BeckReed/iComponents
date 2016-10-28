@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>accordion</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="js/jquery.1.10.2.js"></script>
+</head>
+
+<body>
+    <div id="subject" class="wrapper">
+        <ul>
+            <li class="big">
+                <a href="#"><img src="img/1.png" alt="">
+                    <div class="info">
+                        <p>section1</p>
+                    </div>
+                    <i class="mask"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#"><img src="img/2.png" alt="">
+                    <div class="info">
+                        <p>section2</p>
+                    </div>
+                    <i class="mask"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#"><img src="img/3.png" alt="">
+                    <div class="info">
+                        <p>section3</p>
+                    </div>
+                    <i class="mask"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#"><img src="img/4.png" alt="">
+                    <div class="info">
+                        <p>section4</p>
+                    </div>
+                    <i class="mask"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</body>
+<script >
+ function mouseover(e){
+            var list = $('#subject li');
+            var target = $(e.target).parents('li');
+
+            list.removeClass('big');
+            target.addClass('big');
+        }
+
+        (function(){
+            var outer = $('#subject');
+            outer.find('li').on('mouseover', mouseover);
+        })()
+</script>
+</html>

@@ -1,0 +1,146 @@
+html,
+body,
+#container
+{
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border-collapse: collapse;
+    border: 0;
+    background-color: #333;
+}
+body
+{
+    font-family: 'Segoe UI',Segoe,Tahoma,Arial,Verdana,sans-serif;
+    font-size: small;
+
+    text-decoration: none;
+    position: relative;
+}
+input {
+	font-size: 100%;
+}
+ a {
+    color: #5F524B;
+    text-decoration: none;
+}
+ul li {
+	top: 50%;
+    display: inline-block;
+    vertical-align: middle;
+}
+ul li a:hover
+{
+    text-decoration: none;
+    color: #fff;
+}
+
+header,footer
+{
+    font-size: 15px;
+    height: 5%;
+}
+header a{
+	color: #ACACAC;
+}
+footer {
+	color: #5F524B;
+	right: 20px;
+	position: absolute;
+}
+
+header ul li {
+	margin-left: 15px;
+}
+
+#container
+{
+    position: relative;
+    height: 85%;
+    margin: 0 auto;
+	font-size: 20px;
+    background-color: #ccc;
+    background-image: url('images/background_1.jpg');
+}
+.mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    background-color: #000;
+    z-index: 99;
+
+}
+.wrap
+{
+    position: absolute;
+    top: 20%;
+    left: 8%;
+    margin: 0;
+    z-index: 999;
+}
+
+.logo
+{
+    float: left;
+    width: 107px;
+    height: 53px;
+    margin: -4px 18px 0 0;
+    background-image: url('images/hp_zh_cn.png');
+}
+
+.searchform{
+	position: relative;
+    display: inline-block;
+    background-color: #fff;
+}
+.input-text
+{
+    line-height: 43px;
+    float: left;
+    width: 350px;
+    height: 43px;
+    border: 0;
+    outline: none;
+    box-sizing: border-box;
+    padding: 5px;
+}
+.input-submit
+{
+    height: 45px;
+    width: 45px;
+    border: 8px solid #0c8484;
+    background: #0c8484 url('images/hpc18.png') no-repeat;
+    background-position: -169px -63px;
+    overflow: hidden;
+    vertical-align: top;
+    position: static;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+}
+.suggest {
+	width: 395px;
+	background-color: #fff;
+	border: 1px solid #999;
+	position: absolute;
+	left: 17.2%;
+	top: 28%;
+    display: none;
+    z-index: 999;
+}
+.suggest ul li {
+	display: block;
+	padding: 3px;
+	margin-left: -35px;
+	font-size: 20px;
+	line-height: 25px;
+}
+.suggest ul li:hover {
+	text-decoration: underline;
+	background-color: #e5e5e5;
+}

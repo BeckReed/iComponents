@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>myCalendar</title>
+    
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <style>
+* {
+    padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	outline: none;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+   }
+
+body {
+  background: #EFEFEF;
+  font-family: "微软雅黑";
+  text-align: center;
+  font-size: 16px;
+}
+header h1 {
+	margin: 50px auto;
+}
+input{
+	padding:10px;
+	margin-bottom:10px;
+	border:1px solid #ccc;
+	border-radius:3px;
+}
+.calendar{
+	margin: 0 auto;
+	width: 329px;
+    height: auto;
+}
+/* caption*/
+.cal-caption  {
+	background: #0768C9;
+	color: #fff;
+	height: 45px;
+	width: auto;
+	border-radius: 5px;
+	line-height: 45px;
+	position: relative;
+}
+.year .month .day{
+	margin: 0 auto;
+}
+.arrow-l {
+	position: absolute;
+	z-index: 99;
+	left: 0px;
+	top: 0px;
+	color: #fff;
+	cursor: default;
+}
+i {
+	margin: 5px;
+}
+.arrow-r {
+	position: absolute;
+	z-index: 99;
+	right: 0px;
+	top: 0px;
+	color: #fff;
+	cursor: default;
+}
+/*table*/
+.cal-table {
+	position: absolute;
+	background-color: #fff;
+}
+table {
+	border-spacing: 0;
+	margin: 5px auto;
+	width: 329px;
+}
+table thead th {
+	font-weight: 900;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+    </style>
+
+</head>
+
+<body>
+<header>
+    <h1>日历</h1>
+</header>
+<section>
+
+    <input type="text" id="date-input" class="cal-input" placeholder="点击选择日期">
+    <input type="radio" name="isSelectRange" value="" id="single" checked>单日
+    <input type="radio" name="isSelectRange" value="" id="multi">日期范围
+    <div class="calendar" id="calendar">
+        <div class="cal-caption" id ="caption">
+               <span class="arrow-l"><i class="fa fa-fw fa-arrow-left"></i></span>
+               <span class="arrow-r"><i class="fa fa-fw fa-arrow-right"></i></span>
+               <span class="year">2016</span>
+               <span class="month">10</span>
+               <span class="day">24</span>
+
+        </div>
+        <div class="cal-table" id="table">
+            <table>
+            <thead>
+            	<tr>
+            		<th>日</th>
+            		<th>一</th>
+            		<th>二</th>
+            		<th>三</th>
+            		<th>四</th>
+            		<th>五</th>
+            		<th>六</th>
+
+            	</tr>
+            </thead>
+                <tbody id="tbody">
+                    <!-- <tr>
+                        <td class="unable">1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td class="choosed">1</td>
+                        <td>1</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td class="unchoosed">1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+<script src="js/mycalendar.js"></script>
+<script type="text/javascript">
+var a = new Calendar({
+                  id:"calendar", //容器id
+                  inputId:"date-input",//文本框id
+                  tbodyId:'tbody',//tbody的id
+                  tableClassName:'cal-table',//table的类名，若有多个类，以空格分开
+                  minRangeLen:3,//最短的时间跨度
+                  maxRangeLen:50,//最长的时间跨度
+         });
+</script>
+</body>
+
+</html>

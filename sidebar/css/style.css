@@ -1,0 +1,161 @@
+    * {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+li {
+    list-style: none;
+    padding-left: 0;
+}
+
+#sidebar {
+    width: 35px;
+    background-color: #e1e1e1;
+    padding-top: 200px;
+    position: fixed;
+    height: 100%;
+    z-index: 100;
+    top: 0;
+}
+
+.item {
+    font-size: 14px;
+    text-align: center;
+    font-family: "Microsoft YaHei";
+    margin-top: 8px;
+}
+
+#closeBar {
+    font-size: 14px;
+    position: absolute;
+    margin-top: 40px;
+    width: 35px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.nav-content {
+    width: 200px;
+    top: 0;
+    position: fixed;
+    min-height: 100%;
+    background-color: #e1e1e1;
+    z-index: 99;
+    opacity: 0;
+    text-align: center;
+}
+
+.nav-con-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+}
+
+.sidebar-move-left {
+    animation-name: sml;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes sml {
+    from {}
+    to {
+        transform: translateX(-120px);
+    }
+}
+
+.closeBar-move-right {
+    animation-name: cmr;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes cmr {
+    from {}
+    to {
+        transform: translateX(160px) rotate(405deg) scale(1.5);
+    }
+}
+
+.sidebar-move-right {
+    animation-name: smr;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes smr {
+    from {}
+    to {
+        transform: translateX(120px);
+    }
+}
+
+.closeBar-move-left {
+    animation-name: cml;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes cml {
+    from {
+        transform: scale(1.5);
+    }
+    to {
+        transform: translateX(-160px) scale(1) rotate(360deg);
+    }
+}
+
+.menuContent-move-right {
+    animation-name: mmr;
+    animation-duration: .5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes mmr {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        transform: translateX(120px);
+    }
+}
+
+.menuContent-move-left {
+    animation-name: mml;
+    animation-duration: .5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes mml {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-120px);
+    }
+}
+.menuContent-move-up {
+        animation-name: mmu;
+        animation-duration: .5s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+    }
+@keyframes mmu {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+            transform: translateY(-250px);
+        }
+    }
